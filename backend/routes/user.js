@@ -67,15 +67,16 @@ router.post("/signin", async (req, res) => {
     });
   }
 
-  const User = await User.findOne({
+  let UserDetails;
+  UserDetails = await User.findOne({
     username: req.body.username,
     password: req.body.password,
   });
 
-  if (User) {
+  if (UserDetails) {
     const token = jwt.sign(
       {
-        userId: User._id,
+        userId: UserDetails._id,
       },
       JWT_SECRET
     );

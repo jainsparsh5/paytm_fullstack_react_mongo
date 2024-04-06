@@ -19,7 +19,7 @@ export default function Dashboard() {
       setBalance(res.data.balance);
     };
     fetchBalance();
-  }, []);
+  }, [balance]);
 
   return (
     <div>
